@@ -1,0 +1,65 @@
+{
+  "_readme": "All lengths in mm. Keys starting with '_' are notes and are ignored. Run: python generate.py [other_params.json]",
+
+  "measured": {
+    "_note": "Original hand measurements. Diagram letters (printed by generate.py): A housing width, B insert height, C insert width, D insert depth, E hole from top, F hole diameter, G housing curve width, H housing curve depth, I bottom depth, J top button width, K top button height, L middle height, M bottom height.",
+    "HOUSING_WIDTH": 18.0,
+    "INSERT_HEIGHT": 15.0,
+    "INSERT_WIDTH": 10.0,
+    "INSERT_DEPTH": 4.0,
+    "HOLE_FROM_TOP": 7.5,
+    "HOLE_DIAMETER": 6.0,
+    "HOUSING_CURVE_WIDTH": 20.0,
+    "HOUSING_CURVE_DEPTH": 6.0,
+    "BOTTOM_DEPTH": null,
+    "TOP_BUTTON_WIDTH": 10.0,
+    "TOP_BUTTON_HEIGHT": 3.5,
+    "MIDDLE_HEIGHT": 7.0,
+    "BOTTOM_HEIGHT": 3.5,
+    "_INSERT_HEIGHT": "Overall height of the insert",
+    "_HOLE_FROM_TOP": "Distance from the top of the insert down to the hole centre",
+    "_HOUSING_CURVE_WIDTH": "Chord width of the housing curve",
+    "_HOUSING_CURVE_DEPTH": "Depth (sagitta) of the housing curve",
+    "_BOTTOM_DEPTH": "Front-to-back depth of the bottom section; null follows INSERT_DEPTH",
+    "_MIDDLE_HEIGHT": "Only used when HEIGHT_MODE is 'sections'",
+    "NECK_DEPTH": 2.0,
+    "_NECK_DEPTH": "Front-to-back thickness of the middle section (not in the diagram)",
+    "HEIGHT_MODE": "overall",
+    "_HEIGHT_MODE": "'overall': INSERT_HEIGHT is the height and the middle height is INSERT_HEIGHT - TOP_BUTTON_HEIGHT - BOTTOM_HEIGHT. 'sections': the three section heights are used literally and the height is their sum."
+  },
+
+  "fit": {
+    "_note": "Tweak the printed part without touching the measured dimensions.",
+    "WIDTH_OFFSET": 0.0,
+    "DEPTH_OFFSET": 0.0,
+    "HEIGHT_OFFSET": 0.0,
+    "HOLE_DIAMETER_OFFSET": 0.2,
+    "HOLE_X_OFFSET": 0.0,
+    "_HOLE_X_OFFSET": "Sideways shift of the hole from the centre line (+X = right, looking at the front)",
+    "APPLY_HOUSING_CURVE": true,
+    "_APPLY_HOUSING_CURVE": "Curve the back face to match the housing",
+    "EDGE_RADIUS": 0.0,
+    "_EDGE_RADIUS": "Fillet on all edges; 0 = off"
+  },
+
+  "tube": {
+    "_note": "Cylinder that fills the hole (concentric) and stands out of the back face. Outer diameter = HOLE_DIAMETER, bore = HOLE_DIAMETER - 2 * TUBE_WALL.",
+    "ADD_TUBE": true,
+    "TUBE_WALL": 1.5,
+    "TUBE_LENGTH": 4.0,
+    "_TUBE_LENGTH": "How far the tube stands out past the back face"
+  },
+
+  "curve": {
+    "_note": "Housing curve radius = (W^2 + 4*H^2) / (8*H), with W = HOUSING_CURVE_WIDTH and H = HOUSING_CURVE_DEPTH, when CALCULATE_CURVE_FROM_HOUSING is true; otherwise MANUAL_CURVE_RADIUS.",
+    "CALCULATE_CURVE_FROM_HOUSING": true,
+    "MANUAL_CURVE_RADIUS": 11.33
+  },
+
+  "output": {
+    "_note": "Point these somewhere else in a copy of this file to keep several variants side by side.",
+    "OUTPUT_FILE": "replacement_insert.stl",
+    "PREVIEW": true,
+    "PREVIEW_FILE": "replacement_insert_preview.png"
+  }
+}
